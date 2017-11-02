@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context="com.example.android.volleyballscorekeeper.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/tv_background_color"
+                android:gravity="center"
+                android:padding="@dimen/title_padding"
+                android:text="@string/teamA"
+                android:textAppearance="@style/titles" />
+
+            <TextView
+                android:id="@+id/scoreTeamA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/scoreA"
+                android:textAppearance="@style/score" />
+
+            <Button
+                android:id="@+id/buttonTeamA"
+                android:layout_width="@dimen/btn_width"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginBottom="@dimen/btn_margin_bottom"
+                android:background="@drawable/volley_ball_white"
+                android:onClick="addOneForTeamA"
+                android:text="@string/pointA"
+                android:textAppearance="@style/scoreButton"
+                tools:ignore="DuplicateIds" />
+
+            <TextView
+                android:id="@+id/setTeamA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setA"
+                android:textAppearance="@style/set" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/tv_background_color"
+                android:gravity="center"
+                android:padding="@dimen/title_padding"
+                android:text="@string/teamB"
+                android:textAppearance="@style/titles" />
+
+            <TextView
+                android:id="@+id/scoreTeamB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/scoreB"
+                android:textAppearance="@style/score" />
+
+            <Button
+                android:id="@+id/buttonTeamB"
+                android:layout_width="@dimen/btn_width"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginBottom="@dimen/btn_margin_bottom"
+                android:background="@drawable/volley_ball_white"
+                android:onClick="addOneForTeamB"
+                android:text="@string/pointB"
+                android:textAppearance="@style/scoreButton" />
+
+            <TextView
+                android:id="@+id/setTeamB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setB"
+                android:textAllCaps="true"
+                android:textAppearance="@style/set" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/resetScore"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/btn_reset_height"
+            android:layout_marginBottom="@dimen/btn_reset_margin_bottom"
+            android:layout_marginTop="@dimen/btn_reset_margin_top"
+            android:background="@color/tv_background_color"
+            android:onClick="resetScore"
+            android:text="@string/reset"
+            android:textAppearance="@style/button" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/btn_margin_bottom"
+        android:layout_marginTop="@dimen/btn_reset_margin_top"
+        android:text="@string/time"
+        android:textAppearance="@style/titles" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/btn_reset_height"
+            android:layout_marginLeft="@dimen/btn_margin_left"
+            android:layout_marginRight="@dimen/btn_margin_right"
+            android:layout_weight="1"
+            android:background="@color/tv_background_color"
+            android:text="@string/start"
+            android:textAppearance="@style/button" />
+
+        <Button
+            android:id="@+id/btnStop"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/btn_reset_height"
+            android:layout_marginLeft="@dimen/btn_margin_left"
+            android:layout_marginRight="@dimen/btn_margin_right"
+            android:layout_weight="1"
+            android:background="@color/tv_background_color"
+            android:text="@string/stop"
+            android:textAppearance="@style/button" />
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/btn_reset_height"
+            android:layout_marginLeft="@dimen/btn_margin_left"
+            android:layout_marginRight="@dimen/btn_margin_right"
+            android:layout_weight="1"
+            android:background="@color/tv_background_color"
+            android:onClick="resetNow"
+            android:text="@string/resetTime"
+            android:textAppearance="@style/button" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Chronometer
+            android:id="@+id/chronometer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/chron_margin_top"
+            android:format="%s:%s"
+            android:gravity="center"
+            android:textColor="@color/chron_text_color"
+            android:textSize="70sp" />
+    </LinearLayout>
+</LinearLayout>
+
+
+
+
+
