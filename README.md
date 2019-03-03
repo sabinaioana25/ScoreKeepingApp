@@ -4,8 +4,7 @@ This is the second part of the Android Basics Nanodegree program offered by Udac
 # Project Description
 Implement an app to track scores between two teams within a game
 
-![alt text](D:\Programming\Udacity Android\Udacity Scholarship 1\VolleyScoreKeeper-master\Project Screenshots\app_screenshot.JPG)
-
+![picture alt](app_screenshot.JPG)
 
 # Pre-requisites
 -	Android SDK v22
