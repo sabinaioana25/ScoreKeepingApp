@@ -6,6 +6,8 @@ Implement an app to track scores between two teams within a game
 
 ![picture alt](Screenshot_1552163530.png)
 
+<a href="url"><img src="http://url.to/Screenshot_1552163530.png" align="left" height="48" width="48" ></a>
+
 
 # Pre-requisites
 -	Android SDK v22
