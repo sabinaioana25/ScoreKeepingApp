@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">VolleyballScoreKeeper</string>
-    <string name="teamA">Team A</string>
-    <string name="scoreA">0</string>
-    <string name="pointA">+1</string>
-    <string name="setA">0</string>
-    <string name="teamB">team b</string>
-    <string name="scoreB">0</string>
-    <string name="pointB">+1</string>
-    <string name="setB">0</string>
+    <string name="home">Home</string>
+    <string name="score_home">0</string>
+    <string name="points_button_text">+1 Point</string>
+    <string name="sets_home">0</string>
+    <string name="guest">guest</string>
+    <string name="score_guest">0</string>
+    <string name="points_guest">+1</string>
+    <string name="sets_guest">0</string>
     <string name="reset">reset</string>
     <string name="time">elapsed Time</string>
     <string name="start">start</string>

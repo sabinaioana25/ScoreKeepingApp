@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#a9a9a9</color>
-    <color name="colorPrimaryDark">#7d7d7d</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="colorText1">#fff</color>
+    <color name="colorPrimary">#593193</color>
+    <color name="colorPrimaryDark">#37726F</color>
+    <color name="colorAccent">#F6CF6A</color>
+    <color name="colorText">#fff</color>
     <color name="colorText2">#07395B</color>
     <color name="tv_background_color">#E5C468</color>
     <color name="chron_text_color">#223770</color>

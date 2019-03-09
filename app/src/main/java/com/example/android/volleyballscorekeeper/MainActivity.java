@@ -4,71 +4,76 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
+public class MainActivity extends AppCompatActivity
+        implements View.OnClickListener {
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
-    int score_Team_A = 0;
-    int score_Team_B = 0;
-    int set_Team_A = 0;
-    int set_Team_B = 0;
-
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
+    private int score_team_home = 0;
+    private int score_team_guest = 0;
+    private int set_team_home = 0;
+    private int set_team_guest = 0;
+    private Button timer_start;
+    private Button timer_stop;
+    private Button timer_reset;
     private Chronometer chronometer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        displayForTeamA(0);
-        displayForTeamB(0);
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+        chronometer = findViewById(R.id.chronometer);
+        timer_start = findViewById(R.id.start_timer);
+        timer_start.setOnClickListener(this);
+        timer_stop = findViewById(R.id.stop_timer);
+        timer_stop.setOnClickListener(this);
+        timer_reset = findViewById(R.id.reset_timer);
+        timer_reset.setOnClickListener(this);
 
-        chronometer = (Chronometer) findViewById(R.id.chronometer);
-        findViewById(R.id.btnStart).setOnClickListener(this);
-        findViewById(R.id.btnStop).setOnClickListener(this);
+        displayForTeamHome(score_team_home);
+        displayForTeamGuest(score_team_guest);
     }
 
-    public void addOneForTeamA(View v) {
-        score_Team_A++;
+    public void addOneForTeamHome(View v) {
+        score_team_home++;
         checkSets();
-        displayForTeamA(score_Team_A);
+        displayForTeamHome(score_team_home);
     }
 
-    public void addOneForTeamB(View v) {
-        score_Team_B++;
+    public void addOneForTeamGuest(View v) {
+        score_team_guest++;
         checkSets();
-        displayForTeamB(score_Team_B);
+        displayForTeamGuest(score_team_guest);
     }
 
     /* Calculate the number of won sets */
     public void checkSets() {
-        if ((score_Team_A >= 25) && ((score_Team_A - score_Team_B) > 2)) {
-            score_Team_A = 0;
-            score_Team_B = 0;
-            set_Team_A = set_Team_A + 1;
-            displaySetTeamA(set_Team_A);
-            displayForTeamA(score_Team_A);
-            displayForTeamB(score_Team_B);
+        if ((score_team_home >= 25) && ((score_team_home - score_team_guest) > 2)) {
+            score_team_home = 0;
+            score_team_guest = 0;
+            set_team_home++;
+            displaySetTeamHome(set_team_home);
+            displayForTeamHome(score_team_home);
+            displayForTeamGuest(score_team_guest);
 
-        } else if ((score_Team_B >= 25) && ((score_Team_B - score_Team_A) > 2)) {
-            score_Team_A = 0;
-            score_Team_B = 0;
-            set_Team_B = set_Team_B + 1;
-            displaySetTeamB(set_Team_B);
-            displayForTeamA(score_Team_A);
-            displayForTeamB(score_Team_B);
+        } else if ((score_team_guest >= 25) && ((score_team_guest - score_team_home) >= 2)) {
+            score_team_home = 0;
+            score_team_guest = 0;
+            set_team_guest++;
+            displaySetTeamGuest(set_team_guest);
+            displayForTeamHome(score_team_home);
+            displayForTeamGuest(score_team_guest);
+        }
+
+        if (set_team_home == 3 || set_team_guest == 3) {
+            resetScore();
+            Toast.makeText(this, "Game finished!", Toast.LENGTH_SHORT).show();
+            chronometer.stop();
+            chronometer.setBase(SystemClock.elapsedRealtime());
         }
     }
 
@@ -76,14 +81,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * Resets the score for both teams back to zero. * /
      */
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btnStart:
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.start_timer:
                 chronometer.setBase(SystemClock.elapsedRealtime());
                 chronometer.start();
                 break;
-            case R.id.btnStop:
+            case R.id.stop_timer:
                 chronometer.stop();
+                break;
+            case R.id.reset_timer:
+                chronometer.stop();
+                resetNow(view);
+                resetScore();
                 break;
         }
     }
@@ -93,35 +103,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         chronometer.setBase(SystemClock.elapsedRealtime());
     }
 
-    public void resetScore(View v) {
-        score_Team_A = 0;
-        score_Team_B = 0;
-        set_Team_A = 0;
-        set_Team_B = 0;
+    public void resetScore() {
+        score_team_home = 0;
+        score_team_guest = 0;
+        set_team_home = 0;
+        set_team_guest = 0;
 
-        displayForTeamA(score_Team_A);
-        displayForTeamB(score_Team_B);
-        displaySetTeamA(set_Team_A);
-        displaySetTeamB(set_Team_B);
+        displayForTeamHome(score_team_home);
+        displayForTeamGuest(score_team_guest);
+        displaySetTeamHome(set_team_home);
+        displaySetTeamGuest(set_team_guest);
     }
 
-    public void displayForTeamA(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.scoreTeamA);
+    public void displayForTeamHome(int score) {
+        TextView scoreView = findViewById(R.id.points_team_one);
         scoreView.setText(String.valueOf(score));
     }
 
-    public void displayForTeamB(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.scoreTeamB);
+    public void displayForTeamGuest(int score) {
+        TextView scoreView = findViewById(R.id.points_team_two);
         scoreView.setText(String.valueOf(score));
     }
 
-    public void displaySetTeamA(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.setTeamA);
+    public void displaySetTeamHome(int score) {
+        TextView scoreView = findViewById(R.id.set_team_one);
         scoreView.setText(String.valueOf(score));
     }
 
-    public void displaySetTeamB(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.setTeamB);
+    public void displaySetTeamGuest(int score) {
+        TextView scoreView = findViewById(R.id.set_team_two);
         scoreView.setText(String.valueOf(score));
     }
 }

@@ -4,127 +4,36 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/player_gradient_screen"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context="com.example.android.volleyballscorekeeper.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/btn_height"
+        android:gravity="center"
         android:orientation="horizontal">
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
+            android:padding="@dimen/title_padding"
+            android:text="@string/home"
+            android:textAppearance="@style/style_title_text_view" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/tv_background_color"
-                android:gravity="center"
-                android:padding="@dimen/title_padding"
-                android:text="@string/teamA"
-                android:textAppearance="@style/titles" />
-
-            <TextView
-                android:id="@+id/scoreTeamA"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/scoreA"
-                android:textAppearance="@style/score" />
-
-            <Button
-                android:id="@+id/buttonTeamA"
-                android:layout_width="@dimen/btn_width"
-                android:layout_height="@dimen/btn_height"
-                android:layout_marginBottom="@dimen/btn_margin_bottom"
-                android:background="@drawable/volley_ball_white"
-                android:onClick="addOneForTeamA"
-                android:text="@string/pointA"
-                android:textAppearance="@style/scoreButton"
-                tools:ignore="DuplicateIds" />
-
-            <TextView
-                android:id="@+id/setTeamA"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/setA"
-                android:textAppearance="@style/set" />
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/tv_background_color"
-                android:gravity="center"
-                android:padding="@dimen/title_padding"
-                android:text="@string/teamB"
-                android:textAppearance="@style/titles" />
-
-            <TextView
-                android:id="@+id/scoreTeamB"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/scoreB"
-                android:textAppearance="@style/score" />
-
-            <Button
-                android:id="@+id/buttonTeamB"
-                android:layout_width="@dimen/btn_width"
-                android:layout_height="@dimen/btn_height"
-                android:layout_marginBottom="@dimen/btn_margin_bottom"
-                android:background="@drawable/volley_ball_white"
-                android:onClick="addOneForTeamB"
-                android:text="@string/pointB"
-                android:textAppearance="@style/scoreButton" />
-
-            <TextView
-                android:id="@+id/setTeamB"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/setB"
-                android:textAllCaps="true"
-                android:textAppearance="@style/set" />
-        </LinearLayout>
+            android:padding="@dimen/title_padding"
+            android:text="@string/guest"
+            android:textAppearance="@style/style_title_text_view" />
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-
-        <Button
-            android:id="@+id/resetScore"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/btn_reset_height"
-            android:layout_marginBottom="@dimen/btn_reset_margin_bottom"
-            android:layout_marginTop="@dimen/btn_reset_margin_top"
-            android:background="@color/tv_background_color"
-            android:onClick="resetScore"
-            android:text="@string/reset"
-            android:textAppearance="@style/button" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="@dimen/btn_margin_bottom"
-        android:layout_marginTop="@dimen/btn_reset_margin_top"
-        android:text="@string/time"
-        android:textAppearance="@style/titles" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -132,56 +41,164 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnStart"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/btn_reset_height"
-            android:layout_marginLeft="@dimen/btn_margin_left"
-            android:layout_marginRight="@dimen/btn_margin_right"
+        <TextView
+            android:id="@+id/points_team_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/tv_background_color"
-            android:text="@string/start"
-            android:textAppearance="@style/button" />
+            android:gravity="center"
+            android:text="@string/score_home"
+            android:textAppearance="@style/style_score_text_view" />
 
-        <Button
-            android:id="@+id/btnStop"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/btn_reset_height"
-            android:layout_marginLeft="@dimen/btn_margin_left"
-            android:layout_marginRight="@dimen/btn_margin_right"
+        <TextView
+            android:id="@+id/points_team_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/tv_background_color"
-            android:text="@string/stop"
-            android:textAppearance="@style/button" />
-
-        <Button
-            android:id="@+id/btnReset"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/btn_reset_height"
-            android:layout_marginLeft="@dimen/btn_margin_left"
-            android:layout_marginRight="@dimen/btn_margin_right"
-            android:layout_weight="1"
-            android:background="@color/tv_background_color"
-            android:onClick="resetNow"
-            android:text="@string/resetTime"
-            android:textAppearance="@style/button" />
+            android:gravity="center"
+            android:text="@string/score_guest"
+            android:textAppearance="@style/style_score_text_view" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <Chronometer
-            android:id="@+id/chronometer"
+        <TextView
+            android:id="@+id/set_team_one"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/chron_margin_top"
-            android:format="%s:%s"
+            android:layout_weight="1"
             android:gravity="center"
-            android:textColor="@color/chron_text_color"
-            android:textSize="70sp" />
+            android:text="@string/sets_home"
+            android:textAppearance="@style/style_set_text_view" />
+
+        <TextView
+            android:id="@+id/set_team_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/sets_guest"
+            android:textAllCaps="true"
+            android:textAppearance="@style/style_set_text_view" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/btn_margin_bottom"
+        android:layout_marginTop="@dimen/btn_margin_bottom"
+        android:layout_marginRight="@dimen/btn_margin_bottom"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/add_points_team_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/btn_margin_bottom"
+            android:layout_marginLeft="@dimen/btn_margin_bottom"
+            android:layout_marginEnd="@dimen/btn_height"
+            android:layout_marginRight="@dimen/btn_width"
+            android:layout_weight="1"
+            android:background="@drawable/selector_points_button"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:onClick="addOneForTeamHome"
+            android:src="@drawable/selector_points_button"
+            android:text="@string/points_button_text"
+            android:textAppearance="@style/style_score_button" />
+
+        <Button
+            android:id="@+id/add_points_team_guest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/btn_width"
+            android:layout_marginLeft="@dimen/btn_width"
+            android:layout_marginEnd="@dimen/btn_margin_bottom"
+            android:layout_marginRight="@dimen/btn_margin_bottom"
+            android:layout_weight="1"
+            android:background="@drawable/selector_points_button"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:onClick="addOneForTeamGuest"
+            android:text="@string/points_button_text"
+            android:textAppearance="@style/style_score_button" />
+    </LinearLayout>
+
+    <Chronometer
+        android:id="@+id/chronometer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:format="%s:%s"
+        android:gravity="center"
+        android:paddingTop="@dimen/btn_height"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/timer_text_size" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/start_timer"
+            android:layout_width="@dimen/timer_button_width"
+            android:layout_height="@dimen/btn_reset_height"
+            android:layout_marginStart="@dimen/btn_margin_left"
+            android:layout_marginLeft="@dimen/btn_margin_left"
+            android:layout_marginEnd="@dimen/btn_margin_right"
+            android:layout_marginRight="@dimen/btn_margin_right"
+            android:layout_weight="1"
+            android:background="@drawable/selector_timer_buttons"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="@string/start"
+            android:textAppearance="@style/style_timer_button"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:id="@+id/stop_timer"
+            android:layout_width="@dimen/timer_button_width"
+            android:layout_height="@dimen/btn_reset_height"
+            android:layout_marginStart="@dimen/btn_margin_left"
+            android:layout_marginLeft="@dimen/btn_margin_left"
+            android:layout_marginEnd="@dimen/btn_margin_right"
+            android:layout_marginRight="@dimen/btn_margin_right"
+            android:layout_weight="1"
+            android:background="@drawable/selector_timer_buttons"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="@string/stop"
+            android:textAppearance="@style/style_timer_button" />
+
+        <Button
+            android:id="@+id/reset_timer"
+            android:layout_width="@dimen/timer_button_width"
+            android:layout_height="@dimen/btn_reset_height"
+            android:layout_marginStart="@dimen/btn_margin_left"
+            android:layout_marginLeft="@dimen/btn_margin_left"
+            android:layout_marginEnd="@dimen/btn_margin_right"
+            android:layout_marginRight="@dimen/btn_margin_right"
+            android:layout_weight="1"
+            android:background="@drawable/selector_timer_buttons"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:onClick="resetNow"
+            android:text="@string/resetTime"
+            android:textAppearance="@style/style_timer_button" />
+
     </LinearLayout>
 </LinearLayout>
+
+
+
+
 
 
 

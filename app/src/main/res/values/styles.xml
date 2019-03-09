@@ -1,40 +1,43 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">#E5C468</item>
     </style>
 
-    <style name="titles">
-        <item name="android:textColor">#223770</item>
+    <style name="style_title_text_view">
+        <item name="android:textColor">@color/colorText</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
-    <style name="score">
-        <item name="android:textColor">#000</item>
+    <style name="style_score_text_view">
+        <item name="android:textColor">@color/colorAccent</item>
         <item name="android:textSize">80sp</item>
     </style>
 
-    <style name="scoreButton">
+    <style name="style_score_button">
         <item name="android:textSize">16sp</item>
-        <item name="android:textColor">#223770</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textAllCaps">true</item>
     </style>
 
-    <style name="set">
+    <style name="style_set_text_view">
         <item name="android:textSize">32sp</item>
-        <item name="android:textColor">#000</item>
+        <item name="android:textColor">@color/colorAccent</item>
 
     </style>
-    <style name="button">
-        <item name="android:textColor">#223770</item>
+
+    <style name="style_timer_button">
+        <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:background">@color/colorText</item>
     </style>
 
 </resources>
