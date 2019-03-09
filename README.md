@@ -4,7 +4,7 @@ This is the second part of the Android Basics Nanodegree program offered by Udac
 # Project Description
 Implement an app to track scores between two teams within a game
 
-![picture alt](app_screenshot.JPG)
+![picture alt](Screenshot_1552163530.png)
 
 
 # Pre-requisites
