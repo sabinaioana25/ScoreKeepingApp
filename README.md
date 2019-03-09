@@ -6,6 +6,7 @@ Implement an app to track scores between two teams within a game
 
 ![picture alt](app_screenshot.JPG)
 
+
 # Pre-requisites
 -	Android SDK v22
 -	Android Build Tools v22.0.1
